@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaEnvelope, FaTiktok } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 import NfcsLogo from '../assets/nfcs-logo.png';
 
 const Footer = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaDirections, FaPhone, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaPhone, FaEnvelope, FaFacebook, FaInstagram } from 'react-icons/fa';
 
 const Map = () => {
   return (
@@ -8,7 +8,7 @@ const Map = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-nfcs-dark mb-4">📍 Find Us</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Join us at St Padro Pio Parish FETHA Abakaliki for our exciting Federation Week 2025!
+            Join us at Our Mother of Perpetual Help Chaplaincy, FETHA Abakaliki for our exciting Federation Week 2025!
           </p>
         </div>
 
@@ -24,7 +24,7 @@ const Map = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="St Padro Pio Parish FETHA Abakaliki Location"
+                title="Our Mother of Perpetual Help Chpalaincy FETHA Abakaliki Location"
                 className="absolute inset-0"
               ></iframe>
             </div>
