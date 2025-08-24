@@ -12,31 +12,6 @@ import EventsPage from './pages/EventsPage';
 import AboutPage from './pages/AboutPage';
 import PicnicGroupsPage from './pages/PicnicGroupsPage';
 
-// Helper function to send data to Google Sheets
-// You'll need to implement this according to your specific Google Sheets integration method
-const sendToGoogleSheets = async (userData) => {
-  try {
-    // Example implementation using a Google Apps Script web app URL
-    // Replace with your actual Google Apps Script web app URL
-    const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
-    
-    const response = await fetch(scriptURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: `name=${encodeURIComponent(userData.name)}&group=${encodeURIComponent(userData.group)}`
-    });
-    
-    if (response.ok) {
-      console.log('Data successfully sent to Google Sheets');
-    } else {
-      console.error('Failed to send data to Google Sheets');
-    }
-  } catch (error) {
-    console.error('Error sending data to Google Sheets:', error);
-  }
-};
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -55,14 +30,7 @@ function App() {
 
   const handleGroupSelect = (group) => {
     console.log(`User selected group: ${group.name}`);
-    // Send data to Google Sheets
-    const userName = localStorage.getItem('userName');
-    if (userName) {
-      sendToGoogleSheets({ 
-        name: userName, 
-        group: group.name 
-      });
-    }
+    // Group data is now stored in localStorage via the modal component
   };
 
   return (

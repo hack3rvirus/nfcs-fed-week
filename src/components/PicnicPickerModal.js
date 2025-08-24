@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState } from 'react';
 
 const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
   const [name, setName] = useState('');
@@ -7,37 +7,13 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
   const [assignedGroup, setAssignedGroup] = useState(null);
   const [isRevealing, setIsRevealing] = useState(false);
 
-  // Define the groups with their colors and emojis using useMemo to prevent re-creation on each render
-  const groups = useMemo(() => [
+  // Define the groups with their colors and emojis
+  const groups = [
     { name: 'Blue', color: 'bg-blue-500', textColor: 'text-white', emoji: '🔵' },
     { name: 'Pink', color: 'bg-pink-500', textColor: 'text-white', emoji: '💖' },
     { name: 'White', color: 'bg-gray-200', textColor: 'text-gray-800', emoji: '⚪' },
     { name: 'Red', color: 'bg-red-500', textColor: 'text-white', emoji: '🔴' }
-  ], []);
-
-  // Initialize shuffled groups in localStorage if not already done
-  useEffect(() => {
-    const shuffledGroups = localStorage.getItem('shuffledGroups');
-    if (!shuffledGroups) {
-      // Create an array with equal numbers of each group (for demo, 100 of each)
-      let groupArray = [];
-      groups.forEach(group => {
-        // In a real implementation, you might want to adjust these numbers
-        for (let i = 0; i < 100; i++) {
-          groupArray.push(group.name);
-        }
-      });
-      
-      // Shuffle the array using Fisher-Yates algorithm
-      for (let i = groupArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [groupArray[i], groupArray[j]] = [groupArray[j], groupArray[i]];
-      }
-      
-      localStorage.setItem('shuffledGroups', JSON.stringify(groupArray));
-      localStorage.setItem('currentGroupIndex', '0');
-    }
-  }, [groups]);
+  ];
 
   const handleNameSubmit = (e) => {
     e.preventDefault();
@@ -52,36 +28,9 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
     setSelectedBox(boxIndex);
     setIsRevealing(true);
     
-    console.log('Box selected:', boxIndex);
-    
-    // Get the next group from the shuffled list
-    const shuffledGroups = JSON.parse(localStorage.getItem('shuffledGroups') || '[]');
-    let currentGroupIndex = parseInt(localStorage.getItem('currentGroupIndex') || '0');
-    
-    console.log('Current group index:', currentGroupIndex);
-    console.log('Available groups:', shuffledGroups.length);
-    
-    // If we've run out of groups, default to random assignment
-    let groupName;
-    if (currentGroupIndex < shuffledGroups.length) {
-      groupName = shuffledGroups[currentGroupIndex];
-      currentGroupIndex++;
-      localStorage.setItem('currentGroupIndex', currentGroupIndex.toString());
-      console.log('Assigned group from shuffled list:', groupName);
-    } else {
-      // Fallback to random assignment if we've exhausted our list
-      const randomIndex = Math.floor(Math.random() * groups.length);
-      groupName = groups[randomIndex].name;
-      console.log('Falling back to random assignment, assigned group:', groupName);
-    }
-    
-    // Find the group object
-    const group = groups.find(g => g.name === groupName);
-    
-    if (!group) {
-      console.error('Could not find group object for:', groupName);
-      return;
-    }
+    // True random assignment - each box has equal chance of any group
+    const randomIndex = Math.floor(Math.random() * groups.length);
+    const group = groups[randomIndex];
     
     setTimeout(() => {
       setAssignedGroup(group);
@@ -92,10 +41,8 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
       localStorage.setItem('userGroup', group.name);
       localStorage.setItem('userName', name);
       
-      console.log('User data saved to localStorage');
-      
-      // Send data to Google Forms
-      sendToGoogleForms(name, group.name);
+      // Save user data to group storage
+      saveUserToGroup(name, group.name);
       
       setTimeout(() => {
         setStep(3); // Show result
@@ -103,29 +50,32 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
     }, 1500);
   };
 
-  // Function to send data to Google Forms
-  const sendToGoogleForms = (userName, groupName) => {
-    // Using your actual Google Form URL
-    const nameFieldId = 'entry.1815392300';
-    const groupFieldId = 'entry.381455523';
-    
-    // Create the URL with the form data
-    const formUrl = `https://docs.google.com/forms/u/0/d/e/1FAIpQLSeZkRC4Hnc2o-ayCrlkDByaihhJdWrxEw1e2bDWDgNLQ5ojTA/formResponse?${nameFieldId}=${encodeURIComponent(userName)}&${groupFieldId}=${encodeURIComponent(groupName)}`;
-    
-    console.log('Sending data to Google Forms:', { userName, groupName });
-    console.log('Full URL:', formUrl);
-    
-    // Create an image element to send the data (this bypasses CORS issues)
-    const img = document.createElement('img');
-    img.src = formUrl;
-    img.style.display = 'none';
-    document.body.appendChild(img);
-    
-    // Remove the image after a short delay
-    setTimeout(() => {
-      document.body.removeChild(img);
-      console.log('Data sent to Google Forms successfully');
-    }, 1000);
+  // Function to save user to group in localStorage
+  const saveUserToGroup = (userName, groupName) => {
+    try {
+      // Get existing group data
+      const groupData = JSON.parse(localStorage.getItem('picnicGroups') || '{}');
+      
+      // Initialize group if it doesn't exist
+      if (!groupData[groupName]) {
+        groupData[groupName] = [];
+      }
+      
+      // Add user to group if not already present
+      const userExists = groupData[groupName].some(user => user.name === userName);
+      if (!userExists) {
+        groupData[groupName].push({
+          name: userName,
+          timestamp: new Date().toISOString()
+        });
+        
+        // Save updated group data
+        localStorage.setItem('picnicGroups', JSON.stringify(groupData));
+        console.log(`User ${userName} added to ${groupName} group`);
+      }
+    } catch (error) {
+      console.error('Error saving user to group:', error);
+    }
   };
 
   const handleClose = () => {

@@ -1,33 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { FaMapMarkerAlt, FaDirections } from 'react-icons/fa';
 
 const Hero = () => {
-  const [timeLeft, setTimeLeft] = useState({});
-
-  useEffect(() => {
-    const calculateTimeLeft = () => {
-      const federationWeekDate = new Date('September 24, 2025 00:00:00');
-      const currentTime = new Date();
-      const difference = federationWeekDate - currentTime;
-
-      if (difference > 0) {
-        return {
-          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-          hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-          minutes: Math.floor((difference / 1000 / 60) % 60),
-          seconds: Math.floor((difference / 1000) % 60)
-        };
-      }
-      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-    };
-
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   return (
     <div className="relative bg-gradient-to-br from-nfcs-blue via-nfcs-purple to-nfcs-pink text-white overflow-hidden">
       {/* Animated background elements */}
@@ -57,21 +32,6 @@ const Hero = () => {
             Be part of history! Our inaugural week of faith, fellowship, and celebration
           </p>
 
-          {/* Countdown Timer */}
-          <div className="grid grid-cols-4 gap-4 mb-8 max-w-md mx-auto">
-            {[
-              { value: timeLeft.days || 0, label: 'Days', color: 'bg-nfcs-blue' },
-              { value: timeLeft.hours || 0, label: 'Hours', color: 'bg-nfcs-purple' },
-              { value: timeLeft.minutes || 0, label: 'Minutes', color: 'bg-nfcs-pink' },
-              { value: timeLeft.seconds || 0, label: 'Seconds', color: 'bg-nfcs-gold' }
-            ].map((item, index) => (
-              <div key={index} className={`${item.color} rounded-xl p-4 shadow-lg transform hover:scale-110 transition-transform duration-300`}>
-                <div className="text-2xl md:text-3xl font-bold">{item.value}</div>
-                <div className="text-sm opacity-90">{item.label}</div>
-              </div>
-            ))}
-          </div>
-
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
             <Link to="/events" className="btn-primary">
@@ -80,6 +40,18 @@ const Hero = () => {
             <Link to="/picnic-groups" className="btn-secondary">
               🧺 Join a Picnic Group
             </Link>
+          </div>
+
+          {/* Church Location */}
+          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mt-12">
+            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center">
+              <FaMapMarkerAlt className="mr-2" />
+              St Padro Pio Parish FETHA Abakaliki
+            </h3>
+            <p className="mb-4 text-center">Ebonyi State, Nigeria</p>
+            <div className="aspect-video bg-gray-200 bg-opacity-30 rounded-lg flex items-center justify-center">
+              <p className="text-nfcs-dark">Interactive Map Placeholder</p>
+            </div>
           </div>
 
           {/* Scroll indicator */}

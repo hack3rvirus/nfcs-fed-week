@@ -3,6 +3,7 @@ import Hero from '../components/Hero';
 import Schedule from '../components/Schedule';
 import Exco from '../components/Exco';
 import PlanningCommittee from '../components/PlanningCommittee';
+import Map from '../components/Map';
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <Schedule />
       <Exco />
       <PlanningCommittee />
+      <Map />
     </>
   );
 };

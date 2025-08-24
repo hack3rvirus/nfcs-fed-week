@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="space-y-3">
               <p className="flex items-center justify-center md:justify-start">
                 <FaMapMarkerAlt className="mr-2 text-nfcs-red" />
-                Our Mother of Perpetual Help Chaplaincy, AEFUTHA 1
+                St Padro Pio Parish FETHA Abakaliki
               </p>
               <p className="flex items-center justify-center md:justify-start">
                 <FaEnvelope className="mr-2 text-nfcs-red" />
@@ -36,13 +36,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Follow Us</h3>
             <div className="flex justify-center md:justify-start space-x-6">
-              <a href="https://facebook.com/nfcsaefutha1" target="_blank" rel="noopener noreferrer" className="text-nfcs-gray hover:text-nfcs-red transition-colors duration-300">
+              <a href="https://www.facebook.com/share/1GZesZfhxm/" target="_blank" rel="noopener noreferrer" className="text-nfcs-gray hover:text-nfcs-red transition-colors duration-300">
                 <FaFacebook size={24} />
               </a>
-              <a href="https://tiktok.com/@nfcsaefutha1" target="_blank" rel="noopener noreferrer" className="text-nfcs-gray hover:text-nfcs-red transition-colors duration-300">
-                <FaTiktok size={24} />
-              </a>
-              <a href="https://instagram.com/nfcsaefutha1" target="_blank" rel="noopener noreferrer" className="text-nfcs-gray hover:text-nfcs-red transition-colors duration-300">
+              <a href="https://www.instagram.com/nfcs_aefutha1?igsh=MXE2YmEwaDI2d2xqag==" target="_blank" rel="noopener noreferrer" className="text-nfcs-gray hover:text-nfcs-red transition-colors duration-300">
                 <FaInstagram size={24} />
               </a>
             </div>
@@ -51,6 +48,9 @@ const Footer = () => {
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
           <p>&copy; {new Date().getFullYear()} NFCS AeFutha 1. All Rights Reserved.</p>
+          <p className="mt-2">
+            Built by <a href="https://hackversesoftwaresolutions.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-nfcs-red hover:underline">Hacker</a>
+          </p>
         </div>
       </div>
     </footer>
