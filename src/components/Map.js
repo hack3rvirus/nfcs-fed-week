@@ -8,7 +8,7 @@ const Map = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-nfcs-dark mb-4">📍 Find Us</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Join us at Our Mother of Perpetual Help Chaplaincy, FETHA Abakaliki for our exciting Federation Week 2025!
+            Join us at Our Mother of Perpetual Help Chaplaincy AEFUTHA 1, Abakaliki for our exciting Federation Week 2025!
           </p>
         </div>
 
@@ -24,7 +24,7 @@ const Map = () => {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Our Mother of Perpetual Help Chpalaincy FETHA Abakaliki Location"
+                title="Our Mother of Perpetual Help Chaplaincy AEFUTHA 1, Abakaliki Location"
                 className="absolute inset-0"
               ></iframe>
             </div>
@@ -32,7 +32,7 @@ const Map = () => {
 
           {/* Contact Info */}
           <div className="bg-gradient-to-br from-nfcs-gray to-white rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-nfcs-dark mb-6">St Padro Pio Parish FETHA Abakaliki</h3>
+            <h3 className="text-2xl font-bold text-nfcs-dark mb-6">Our Mother of Perpetual Help Chaplaincy AEFUTHA 1 Abakaliki</h3>
             
             <div className="space-y-6">
               <div className="flex items-start">
@@ -40,8 +40,8 @@ const Map = () => {
                 <div>
                   <h4 className="font-bold text-lg text-nfcs-dark">Address</h4>
                   <p className="text-gray-700">
-                    St Padro Pio Parish<br />
-                    FETHA Abakaliki<br />
+                  Our Mother of Perpetual Help Chaplaincy<br />
+                    AEFUTHA 1 Abakaliki<br />
                     Ebonyi State, Nigeria
                   </p>
                 </div>
@@ -77,13 +77,6 @@ const Map = () => {
                     </a>
                   </div>
                 </div>
-              </div>
-
-              <div className="pt-4">
-                <button className="btn-primary flex items-center">
-                  <FaDirections className="mr-2" />
-                  Get Detailed Directions
-                </button>
               </div>
             </div>
           </div>

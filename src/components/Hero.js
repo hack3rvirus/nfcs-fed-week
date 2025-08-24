@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
@@ -33,19 +34,19 @@ const Hero = () => {
 
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <Link to="/events" className="btn-primary">
+            <button className="btn-primary">
               📅 View Event Details
-            </Link>
-            <Link to="/picnic-groups" className="btn-secondary">
+            </button>
+            <button className="btn-secondary">
               🧺 Join a Picnic Group
-            </Link>
+            </button>
           </div>
 
           {/* Church Location */}
           <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mt-12">
             <h3 className="text-2xl font-bold mb-4 flex items-center justify-center">
               <FaMapMarkerAlt className="mr-2" />
-              St Padro Pio Parish FETHA Abakaliki
+              our Mother of Perpetual Help Chaplaincy, AEFUTHA 1 Abakaliki
             </h3>
             <p className="mb-4 text-center">Ebonyi State, Nigeria</p>
             <div className="aspect-video bg-gray-200 bg-opacity-30 rounded-lg flex items-center justify-center">
