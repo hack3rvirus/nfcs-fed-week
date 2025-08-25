@@ -11,7 +11,7 @@ const Footer = () => {
           {/* About Section */}
           <div className="flex flex-col items-center md:items-start">
             <img src={NfcsLogo} alt="NFCS Logo" className="h-16 w-auto bg-white rounded-full p-1 mb-4" />
-            <h3 className="text-lg font-bold text-white mb-2">NFCS AeFutha 1</h3>
+            <h3 className="text-lg font-bold text-white mb-2">NFCS AEFUTHA 1</h3>
             <p className="text-sm max-w-xs">
               Nigeria Federation of Catholic Students, Alex Ekwueme Federal University Teaching Hospital, Abakaliki.
             </p>
@@ -23,7 +23,7 @@ const Footer = () => {
             <div className="space-y-3">
               <p className="flex items-center justify-center md:justify-start">
                 <FaMapMarkerAlt className="mr-2 text-nfcs-red" />
-                St Padro Pio Parish FETHA Abakaliki
+                Our Mother of Perpetual Help Chaplaincy, AEFUTHA 1, Abakaliki
               </p>
               <p className="flex items-center justify-center md:justify-start">
                 <FaEnvelope className="mr-2 text-nfcs-red" />
@@ -47,7 +47,7 @@ const Footer = () => {
 
         </div>
         <div className="border-t border-gray-700 mt-8 pt-6 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} NFCS AeFutha 1. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} NFCS AEFUTHA 1. All Rights Reserved.</p>
           <p className="mt-2">
             Built by <a href="https://hackversesoftwaresolutions.netlify.app/" target="_blank" rel="noopener noreferrer" className="text-nfcs-red hover:underline">Hacker</a>
           </p>
