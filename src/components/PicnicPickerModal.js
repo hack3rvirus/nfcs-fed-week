@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { database } from '../firebase';
+import { ref, push } from 'firebase/database';
 
 const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
   const [name, setName] = useState('');
@@ -36,13 +38,13 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
       setAssignedGroup(group);
       setIsRevealing(false);
       
-      // Save to localStorage
+      // Save to localStorage for immediate feedback
       localStorage.setItem('hasPickedGroup', 'true');
       localStorage.setItem('userGroup', group.name);
       localStorage.setItem('userName', name);
       
-      // Save user data to group storage
-      saveUserToGroup(name, group.name);
+      // Save user data to Firebase for global storage
+      saveUserToFirebase(name, group.name);
       
       setTimeout(() => {
         setStep(3); // Show result
@@ -50,31 +52,20 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
     }, 1500);
   };
 
-  // Function to save user to group in localStorage
-  const saveUserToGroup = (userName, groupName) => {
+  // Function to save user to Firebase
+  const saveUserToFirebase = (userName, groupName) => {
     try {
-      // Get existing group data
-      const groupData = JSON.parse(localStorage.getItem('picnicGroups') || '{}');
-      
-      // Initialize group if it doesn't exist
-      if (!groupData[groupName]) {
-        groupData[groupName] = [];
-      }
-      
-      // Add user to group if not already present
-      const userExists = groupData[groupName].some(user => user.name === userName);
-      if (!userExists) {
-        groupData[groupName].push({
-          name: userName,
-          timestamp: new Date().toISOString()
-        });
-        
-        // Save updated group data
-        localStorage.setItem('picnicGroups', JSON.stringify(groupData));
-        console.log(`User ${userName} added to ${groupName} group`);
-      }
+      const usersRef = ref(database, 'picnicGroups/' + groupName);
+      push(usersRef, {
+        name: userName,
+        timestamp: new Date().toISOString()
+      }).then(() => {
+        console.log(`User ${userName} added to ${groupName} group in Firebase`);
+      }).catch((error) => {
+        console.error('Error saving user to Firebase:', error);
+      });
     } catch (error) {
-      console.error('Error saving user to group:', error);
+      console.error('Error with Firebase connection:', error);
     }
   };
 

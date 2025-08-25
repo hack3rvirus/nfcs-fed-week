@@ -1,35 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { database } from '../firebase';
+import { ref, onValue } from 'firebase/database';
 
 const PicnicGroupsPage = () => {
   const [groupData, setGroupData] = useState({});
   const [activeTab, setActiveTab] = useState('Blue');
 
   // Group information
-  const groups = [
+  const groups = useMemo(() => [
     { name: 'Blue', color: 'bg-blue-500', textColor: 'text-white', emoji: '🔵' },
     { name: 'Pink', color: 'bg-pink-500', textColor: 'text-white', emoji: '💖' },
     { name: 'White', color: 'bg-gray-200', textColor: 'text-gray-800', emoji: '⚪' },
     { name: 'Red', color: 'bg-red-500', textColor: 'text-white', emoji: '🔴' }
-  ];
+  ], []);
 
-  // Load group data from localStorage
+  // Load group data from Firebase
   useEffect(() => {
     const loadGroupData = () => {
       try {
-        const data = JSON.parse(localStorage.getItem('picnicGroups') || '{}');
-        setGroupData(data);
+        // Listen for changes in each group
+        groups.forEach(group => {
+          const groupRef = ref(database, 'picnicGroups/' + group.name);
+          onValue(groupRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data) {
+              // Convert Firebase object to array
+              const membersArray = Object.keys(data).map(key => ({
+                id: key,
+                ...data[key]
+              }));
+              setGroupData(prevData => ({
+                ...prevData,
+                [group.name]: membersArray
+              }));
+            } else {
+              setGroupData(prevData => ({
+                ...prevData,
+                [group.name]: []
+              }));
+            }
+          });
+        });
       } catch (error) {
-        console.error('Error loading group data:', error);
-        setGroupData({});
+        console.error('Error loading group data from Firebase:', error);
+        // Fallback to localStorage if Firebase fails
+        const localData = JSON.parse(localStorage.getItem('picnicGroups') || '{}');
+        setGroupData(localData);
       }
     };
 
     loadGroupData();
-    
-    // Set up an interval to refresh data every 5 seconds
-    const interval = setInterval(loadGroupData, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  }, [groups]);
 
   // Calculate total members
   const totalMembers = Object.values(groupData).reduce((total, group) => total + (group ? group.length : 0), 0);
@@ -106,7 +127,7 @@ const PicnicGroupsPage = () => {
               <tbody className="bg-white divide-y divide-gray-200">
                 {groupData[activeTab] && groupData[activeTab].length > 0 ? (
                   groupData[activeTab].map((member, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                    <tr key={member.id || index} className={index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {index + 1}
                       </td>
@@ -134,7 +155,7 @@ const PicnicGroupsPage = () => {
         <div className="bg-nfcs-gray p-6 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold text-nfcs-dark mb-4 text-center">📍 Our Location</h2>
           <p className="text-center text-gray-700 mb-6">
-            St Padro Pio Parish FETHA Abakaliki<br />
+            Our Mother of Perpetual Help Chaplaincy, AEFUTHA 1 Abakaliki<br />
             Ebonyi State, Nigeria
           </p>
           

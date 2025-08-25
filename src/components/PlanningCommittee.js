@@ -4,9 +4,9 @@ import ghibliImage from '../assets/ghibli4.jpeg';
 // Planning committee members with realistic photos
 const committeeMembers = [
   {
-    name: 'Nurse Mary',
+    name: 'Nwachukwu Mary',
     position: 'Planning Committee Chair',
-    imageUrl: ghibliImage,
+    imageUrl: 'src/assets/mary.png',
   },
   {
     name: 'Elvis Nwoke',
@@ -16,7 +16,7 @@ const committeeMembers = [
   {
     name: 'Frank Oge',
     position: 'Media Director',
-    imageUrl: ghibliImage,
+    imageUrl: 'src/assets/mee.jpg',
   },
   {
     name: 'Big Shaq',

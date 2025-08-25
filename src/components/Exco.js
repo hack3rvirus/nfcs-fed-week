@@ -4,14 +4,29 @@ import ghibliImage from '../assets/ghibli4.jpeg';
 // Sample data for executive members
 const excoMembers = [
   {
+    name: 'Rev. Fr. Dr. Chidi Obasi',
+    position: 'Chaplain',
+    imageUrl: 'src/assets/chidi.png',
+  },
+  {
+    name: 'High Chief Moses Ofoke',
+    position: 'Patron',
+    imageUrl: 'src/assets/ofoke.png',
+  },
+  {
+    name: 'Lady Rose Ibeh',
+    position: 'Patroness',
+    imageUrl: 'src/assets/ibeh.png',
+  },
+  {
     name: 'Eneh StellaMaris',
     position: 'President',
-    imageUrl: ghibliImage,
+    imageUrl: 'src/assets/maris.jpg',
   },
   {
     name: 'Okonkwo Christian',
     position: 'Vice President',
-    imageUrl: ghibliImage,
+    imageUrl: 'src/assets/chris.png',
   },
   {
     name: 'Okoh Margaret',
@@ -19,9 +34,9 @@ const excoMembers = [
     imageUrl: ghibliImage,
   },
   {
-    name: 'Chinwa',
-    position: 'Financial Secretary',
-    imageUrl: ghibliImage,
+    name: 'Ofoma Onyedikachi Martha',
+    position: 'Treasurer',
+    imageUrl: 'src/assets/martha.png',
   },
   {
     name: 'Emeka Obi',
@@ -29,9 +44,9 @@ const excoMembers = [
     imageUrl: ghibliImage,
   },
   {
-    name: 'Adaeze Spunky',
+    name: 'Amechi Felicitas',
     position: 'Director of Socials',
-    imageUrl: ghibliImage,
+    imageUrl: 'src/assets/felicitas.png',
   },
 ];
 
