@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const Hero = () => {
   return (
@@ -23,7 +22,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-            Federation Week <span className="text-gradient">2025</span>
+            Federation Week <span className="text-nfcs-gold">2025</span>
           </h1>
           
           {/* Subtitle */}
@@ -41,17 +40,6 @@ const Hero = () => {
             </button>
           </div>
 
-          {/* Church Location */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mt-12">
-            <h3 className="text-2xl font-bold mb-4 flex items-center justify-center">
-              <FaMapMarkerAlt className="mr-2" />
-              our Mother of Perpetual Help Chaplaincy, AEFUTHA 1 Abakaliki
-            </h3>
-            <p className="mb-4 text-center">Ebonyi State, Nigeria</p>
-            <div className="aspect-video bg-gray-200 bg-opacity-30 rounded-lg flex items-center justify-center">
-              <p className="text-nfcs-dark">Interactive Map Placeholder</p>
-            </div>
-          </div>
 
           {/* Scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
