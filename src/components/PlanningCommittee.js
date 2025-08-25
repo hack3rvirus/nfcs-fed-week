@@ -26,12 +26,7 @@ const committeeMembers = [
     imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'Spunky',
-    position: 'Finance Coordinator',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
-  },
-  {
-    name: 'Nwosu Martha',
+    name: 'Adaeze',
     position: 'Welfare Coordinator',
     imageUrl: ghibliImage, // Using placeholder as specific image not available
   },

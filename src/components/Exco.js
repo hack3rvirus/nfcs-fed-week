@@ -39,33 +39,18 @@ const excoMembers = [
     imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'Chinwa',
-    position: 'Financial Secretary',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
-  },
-  {
     name: 'Emeka Obi',
     position: 'PRO',
     imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'Adaeze Spunky',
-    position: 'Director of Socials',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
-  },
-  {
-    name: 'Nwosu Martha',
-    position: 'Welfare Director',
+    name: 'Ofoma Onyedikachi Martha',
+    position: 'Treasurer',
     imageUrl: marthaImage,
   },
   {
-    name: 'Eze Promise',
-    position: 'Sports Director',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
-  },
-  {
-    name: 'Ani Felistus',
-    position: 'Assistant General Secretary',
+    name: 'Amechi Felicitas',
+    position: 'Director of Socials',
     imageUrl: felicitasImage,
   },
 ];
