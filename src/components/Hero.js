@@ -1,67 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const Hero = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });
-
-  useEffect(() => {
-    // Set the target date - Wednesday, September 24th, 2025
-    const targetDate = new Date('September 24, 2025 00:00:00').getTime();
-
-    const calculateTimeLeft = () => {
-      const now = new Date().getTime();
-      const difference = targetDate - now;
-
-      if (difference > 0) {
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        return { days, hours, minutes, seconds };
-      } else {
-        return { days: 0, hours: 0, minutes: 0, seconds: 0 };
-      }
-    };
-
-    // Calculate initial time left
-    setTimeLeft(calculateTimeLeft());
-
-    // Update the countdown every second
-    const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
-    }, 1000);
-
-    // Clean up the interval on component unmount
-    return () => clearInterval(timer);
-  }, []);
-
   return (
-    <div className="relative bg-gradient-to-r from-nfcs-blue to-nfcs-purple text-white overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 rounded-full bg-white"></div>
-        <div className="absolute bottom-20 right-20 w-48 h-48 rounded-full bg-white"></div>
-        <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full bg-white"></div>
-      </div>
+    <div className="relative bg-gradient-to-br from-nfcs-blue via-nfcs-purple to-nfcs-pink text-white overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-10"></div>
       
-      <div className="container mx-auto px-4 lg:px-8 py-24 md:py-32 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">
+      {/* Floating elements */}
+      <div className="absolute top-10 left-10 w-20 h-20 bg-white bg-opacity-10 rounded-full animate-float"></div>
+      <div className="absolute top-20 right-20 w-16 h-16 bg-nfcs-gold bg-opacity-20 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+      <div className="absolute bottom-20 left-20 w-12 h-12 bg-nfcs-red bg-opacity-20 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+      
+      <div className="relative container-custom py-20 md:py-32">
+        <div className="max-w-4xl mx-auto text-center animate-fade-in">
+          {/* Badge for first Federation Week */}
+          <div className="inline-flex items-center bg-nfcs-gold text-nfcs-dark px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse-slow">
+            <span className="mr-2">🎉</span>
+            HISTORIC FIRST FEDERATION WEEK!
+            <span className="ml-2">🎉</span>
+          </div>
+
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
             Federation Week <span className="text-nfcs-gold">2025</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-2 font-light">
-            Celebrating Unity in Diversity
-          </p>
-          <p className="text-lg md:text-xl mb-10 font-light">
-            June 15-22, 2025 • Our Mother of Perpetual Help Chaplaincy, AEFUTHA 1, Abakaliki
-          </p>
           
-          {/* Countdown Timer */}
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl mb-8 opacity-90">
+            Be part of history! Our inaugural week of faith, fellowship, and celebration
+          </p>
+
+          {/* Call to Action Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
+            <button className="btn-primary">
+              📅 View Event Details
+            </button>
+            <button className="btn-secondary">
+              🧺 Join a Picnic Group
+            </button>
+          </div>
+
+                    {/* Countdown Timer */}
           <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mb-10">
             <h3 className="text-xl font-bold mb-4">Event Starts In</h3>
             <div className="flex justify-center space-x-2 md:space-x-4">
@@ -96,12 +75,16 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
-      {/* Decorative wave */}
-      <div className="absolute bottom-0 left-0 right-0">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-          <path fill="#ffffff" fillOpacity="0.2" d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
-        </svg>
+
+
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
