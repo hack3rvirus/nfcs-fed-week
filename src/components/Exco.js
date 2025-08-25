@@ -1,4 +1,9 @@
 import React from 'react';
+import chidiImage from '../assets/chidi.png';
+import marisImage from '../assets/maris.jpg';
+import chrisImage from '../assets/chris.png';
+import felicitasImage from '../assets/felicitas.png';
+import marthaImage from '../assets/martha.png';
 import ghibliImage from '../assets/ghibli4.jpeg';
 
 // Sample data for executive members
@@ -6,47 +11,62 @@ const excoMembers = [
   {
     name: 'Rev. Fr. Dr. Chidi Obasi',
     position: 'Chaplain',
-    imageUrl: 'src/assets/chidi.png',
+    imageUrl: chidiImage,
   },
   {
     name: 'High Chief Moses Ofoke',
     position: 'Patron',
-    imageUrl: 'src/assets/ofoke.png',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
     name: 'Lady Rose Ibeh',
     position: 'Patroness',
-    imageUrl: 'src/assets/ibeh.png',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
     name: 'Eneh StellaMaris',
     position: 'President',
-    imageUrl: 'src/assets/maris.jpg',
+    imageUrl: marisImage,
   },
   {
     name: 'Okonkwo Christian',
     position: 'Vice President',
-    imageUrl: 'src/assets/chris.png',
+    imageUrl: chrisImage,
   },
   {
     name: 'Okoh Margaret',
     position: 'General Secretary',
-    imageUrl: ghibliImage,
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'Ofoma Onyedikachi Martha',
-    position: 'Treasurer',
-    imageUrl: 'src/assets/martha.png',
+    name: 'Chinwa',
+    position: 'Financial Secretary',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
     name: 'Emeka Obi',
     position: 'PRO',
-    imageUrl: ghibliImage,
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'Amechi Felicitas',
+    name: 'Adaeze Spunky',
     position: 'Director of Socials',
-    imageUrl: 'src/assets/felicitas.png',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
+  },
+  {
+    name: 'Nwosu Martha',
+    position: 'Welfare Director',
+    imageUrl: marthaImage,
+  },
+  {
+    name: 'Eze Promise',
+    position: 'Sports Director',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
+  },
+  {
+    name: 'Ani Felistus',
+    position: 'Assistant General Secretary',
+    imageUrl: felicitasImage,
   },
 ];
 

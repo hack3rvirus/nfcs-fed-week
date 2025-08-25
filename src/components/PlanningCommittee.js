@@ -1,4 +1,6 @@
 import React from 'react';
+import maryImage from '../assets/mary.png';
+import frankImage from '../assets/mee.jpg';
 import ghibliImage from '../assets/ghibli4.jpeg';
 
 // Planning committee members with realistic photos
@@ -6,32 +8,32 @@ const committeeMembers = [
   {
     name: 'Nwachukwu Mary',
     position: 'Planning Committee Chair',
-    imageUrl: 'src/assets/mary.png',
+    imageUrl: maryImage,
   },
   {
     name: 'Elvis Nwoke',
     position: 'Logistics Coordinator',
-    imageUrl: ghibliImage,
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
     name: 'Frank Oge',
     position: 'Media Director',
-    imageUrl: 'src/assets/mee.jpg',
+    imageUrl: frankImage,
   },
   {
     name: 'Big Shaq',
     position: 'Publicity Officer',
-    imageUrl: ghibliImage,
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
     name: 'Spunky',
     position: 'Finance Coordinator',
-    imageUrl: ghibliImage,
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
   {
-    name: 'SOS',
-    position: 'Volunteer Coordinator',
-    imageUrl: ghibliImage,
+    name: 'Nwosu Martha',
+    position: 'Welfare Coordinator',
+    imageUrl: ghibliImage, // Using placeholder as specific image not available
   },
 ];
 
