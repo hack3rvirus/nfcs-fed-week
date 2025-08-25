@@ -40,42 +40,6 @@ const Hero = () => {
             </button>
           </div>
 
-                    {/* Countdown Timer */}
-          <div className="bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl p-6 max-w-2xl mx-auto mb-10">
-            <h3 className="text-xl font-bold mb-4">Event Starts In</h3>
-            <div className="flex justify-center space-x-2 md:space-x-4">
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-nfcs-gold rounded-lg flex items-center justify-center">
-                  <span className="text-xl md:text-2xl font-bold text-nfcs-dark">{timeLeft.days}</span>
-                </div>
-                <span className="mt-2 text-sm md:text-base">Days</span>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-nfcs-gold rounded-lg flex items-center justify-center">
-                  <span className="text-xl md:text-2xl font-bold text-nfcs-dark">{timeLeft.hours}</span>
-                </div>
-                <span className="mt-2 text-sm md:text-base">Hours</span>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-nfcs-gold rounded-lg flex items-center justify-center">
-                  <span className="text-xl md:text-2xl font-bold text-nfcs-dark">{timeLeft.minutes}</span>
-                </div>
-                <span className="mt-2 text-sm md:text-base">Minutes</span>
-              </div>
-              
-              <div className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-nfcs-gold rounded-lg flex items-center justify-center">
-                  <span className="text-xl md:text-2xl font-bold text-nfcs-dark">{timeLeft.seconds}</span>
-                </div>
-                <span className="mt-2 text-sm md:text-base">Seconds</span>
-              </div>
-            </div>
-          </div>
-
-
-
 
           {/* Scroll indicator */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
