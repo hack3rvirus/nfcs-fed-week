@@ -5,6 +5,10 @@ import chrisImage from '../assets/chris.png';
 import felicitasImage from '../assets/felicitas.png';
 import marthaImage from '../assets/martha.png';
 import ghibliImage from '../assets/ghibli4.jpeg';
+import patron1 from '../assets/patron1.jpg';
+import patron2 from '../assets/patron2.jpg';
+import patron3 from '../assets/patron3.jpg';
+import maggy from '../assets/maggy.jpg';
 
 // Sample data for executive members
 const excoMembers = [
@@ -16,12 +20,17 @@ const excoMembers = [
   {
     name: 'High Chief Moses Ofoke',
     position: 'Patron',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
+    imageUrl: patron1, 
+  },
+  {
+    name: 'High Chief Moses Ofoke',
+    position: 'Patron',
+    imageUrl: patron2, 
   },
   {
     name: 'Lady Rose Ibeh',
     position: 'Patroness',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
+    imageUrl: patron3, 
   },
   {
     name: 'Eneh StellaMaris',
@@ -36,12 +45,12 @@ const excoMembers = [
   {
     name: 'Okoh Margaret',
     position: 'General Secretary',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
+    imageUrl: maggy, 
   },
   {
     name: 'Emeka Obi',
     position: 'PRO',
-    imageUrl: ghibliImage, // Using placeholder as specific image not available
+    imageUrl: ghibliImage, 
   },
   {
     name: 'Ofoma Onyedikachi Martha',
