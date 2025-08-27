@@ -66,7 +66,7 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-           Federation Week <span className="text-nfcs-gold">2025</span>
+          Federation Week <span className="text-nfcs-gold">2025</span>
           </h1>
           
           {/* Subtitle */}
