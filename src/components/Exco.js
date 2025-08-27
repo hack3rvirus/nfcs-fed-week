@@ -18,17 +18,17 @@ const excoMembers = [
     imageUrl: chidiImage,
   },
   {
-    name: 'High Chief Moses Ofoke',
+    name: 'Engr Victor Afoke',
     position: 'Patron',
     imageUrl: patron1, 
   },
   {
-    name: 'High Chief Moses Ofoke',
+    name: 'Mr Nomeh Joseph',
     position: 'Patron',
     imageUrl: patron2, 
   },
   {
-    name: 'Lady Rose Ibeh',
+    name: 'Lady Ejeh Getrude',
     position: 'Patroness',
     imageUrl: patron3, 
   },
