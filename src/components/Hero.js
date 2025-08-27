@@ -58,21 +58,21 @@ const Hero = () => {
       <div className="relative container-custom py-20 md:py-32">
         <div className="max-w-4xl mx-auto text-center animate-fade-in">
           {/* Badge for first Federation Week */}
-          <div className="inline-flex items-center bg-nfcs-gold text-nfcs-dark px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse-slow">
-            <span className="mr-2">🎉</span>
-            HISTORIC FIRST FEDERATION WEEK!
-            <span className="ml-2">🎉</span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
-          Federation Week <span className="text-nfcs-gold">2025</span>
-          </h1>
-          
-          {/* Subtitle */}
-          <p className="text-xl md:text-2xl mb-8 opacity-90">
-            Be part of history! Our inaugural week of faith, fellowship, and celebration
-          </p>
+          <div className="inline-flex items-center bg-nfcs-gold text-nfcs-dark px-4 py-2 rounded-full text-sm font-bold mb-6 animate-pulse-slow">
+            <span className="mr-2">🎉</span>
+            HISTORIC FIRST FEDERATION WEEK!
+            <span className="ml-2">🎉</span>
+          </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            Federation Week <span className="text-nfcs-gold">2025</span>
+          </h1>
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl mb-8 opacity-90">
+            Be part of history! Our inaugural week of faith, fellowship, and celebration
+          </p>
 
           {/* --- NEW: COUNTDOWN TIMER DISPLAY --- */}
           <div className="flex justify-center gap-3 sm:gap-4 md:gap-6 my-10">
