@@ -8,7 +8,7 @@ import ghibliImage from '../assets/ghibli4.jpeg';
 import patron1 from '../assets/patron1.jpg';
 import patron2 from '../assets/patron2.jpg';
 import patron3 from '../assets/patron3.jpg';
-// import maggy from '../assets/maggy.jpg';
+import maggy from '../assets/maggy.jpg';
 
 // Sample data for executive members
 const excoMembers = [
@@ -45,7 +45,7 @@ const excoMembers = [
   {
     name: 'Okoh Margaret',
     position: 'General Secretary',
-    imageUrl: ghibliImage, 
+    imageUrl: maggy, 
   },
   {
     name: 'Emeka Obi',
