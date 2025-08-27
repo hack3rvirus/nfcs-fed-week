@@ -26,7 +26,7 @@ const Navbar = () => {
               className="h-14 w-auto transform group-hover:scale-110 transition-transform duration-300" 
             />
             <span className="ml-3 text-xl font-bold text-gradient hidden sm:block">
-              NFCS AeFutha 1
+              NFCS AEFUTHA 1
             </span>
           </Link>
           
