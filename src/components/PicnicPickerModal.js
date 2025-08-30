@@ -29,6 +29,12 @@ const PicnicPickerModal = ({ onClose, onGroupSelect }) => {
     
     setSelectedBox(boxIndex);
     setIsRevealing(true);
+
+        // --- CHANGE START: Filter out the 'White' group ---
+    // Create a new array of groups that can be selected from.
+    const selectableGroups = groups.filter(group => group.name !== 'White');
+    // --- CHANGE END ---
+
     
     // True random assignment - each box has equal chance of any group
     const randomIndex = Math.floor(Math.random() * groups.length);
